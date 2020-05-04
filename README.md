@@ -1,1 +1,4 @@
-# Test-Vislice
+Test-Vislice
+============
+
+Testni repozitorij, ustvarjen pri predmetu UVP
