@@ -3,4 +3,4 @@ Test-Vislice
 
 Testni repozitorij, ustvarjen pri predmetu UVP
 
-[velebor]
+*test iz linux mint*
