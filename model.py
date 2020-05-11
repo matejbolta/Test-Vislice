@@ -12,6 +12,7 @@ NAPACNA_CRKA = '-'
 ZMAGA = 'W'
 PORAZ = 'X'
 
+# Zgradimo bazen besed iz datoteke z besedami
 bazen_besed = []
 with open('besede.txt', 'r', encoding='utf-8') as datoteka_besed:
     for beseda in datoteka_besed:
@@ -19,18 +20,18 @@ with open('besede.txt', 'r', encoding='utf-8') as datoteka_besed:
 
 class Igra:
     def __init__(self, geslo, crke=None):
-        self.geslo = geslo.lower()
+        self.geslo = geslo
         if crke is None:
             self.crke = []
         else:
             self.crke = [c.lower() for c in crke]
 
     def napacne_crke(self):
-        '''vrnet seznam napačnih ugibanj igralca'''
+        '''vrne seznam napačnih ugibanj igralca'''
         return [c for c in self.crke if c not in self.geslo]
 
     def pravilne_crke(self):
-        '''vrnet seznam pravilnih ugibanj igralca'''
+        '''vrne seznam pravilnih ugibanj igralca'''
         return [c for c in self.crke if c in self.geslo]
 
     def stevilo_napak(self):
@@ -78,5 +79,6 @@ class Igra:
                 return NAPACNA_CRKA
 
 
+# Naredimo funkcijo za novo igro
 def nova_igra():
     return Igra(random.choice(bazen_besed))
