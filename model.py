@@ -1,7 +1,7 @@
 import os, random
 #os.chdir('UvP/Vislice')
 
-STEVILO_DOVOLJENIH_NAPAK = 10
+STEVILO_DOVOLJENIH_NAPAK = 9
 
 # Konstante za rezultate ugibanj
 PRAVILNA_CRKA = '+'
