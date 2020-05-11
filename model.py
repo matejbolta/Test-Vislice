@@ -35,7 +35,7 @@ class Igra:
 
     def stevilo_napak(self):
         '''izračuna koliko napačnih ugibov je igralec že naredil'''
-        return len(self.napacne_crke)
+        return len(self.napacne_crke())
 
     def je_zmaga(self):
         return all(c in self.crke for c in self.geslo)
@@ -50,7 +50,7 @@ class Igra:
             if crka in self.crke:
                 rtr += crka
             else:
-                trenutno += '_'
+                rtr += '_'
 
         return rtr
 
