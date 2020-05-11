@@ -1,14 +1,14 @@
-#   _____
-#   |   |
-#   |   o
-#   |  /|\
-#   |  / \
-#  _|______ 
+#    _____
+#   |/   |
+#   |    o
+#   |   /|\
+#   |   / \
+#  _|_______
 
 import os, random
 os.chdir('UvP/Vislice')
 
-STEVILO_DOVOLJENIH_NAPAK = 9
+STEVILO_DOVOLJENIH_NAPAK = 10
 
 # Konstante za rezultate ugibanj
 PRAVILNA_CRKA = '+'
