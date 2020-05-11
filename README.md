@@ -1,6 +1,6 @@
-Test-Vislice
+Vislice
 ============
 
-Testni repozitorij, ustvarjen pri predmetu UVP
+## Projekt pri predmetu Uvod v programiranje.
 
-[velebor]
+Naredili bomo program, ki nas vodi skozi znano igro vislic.
