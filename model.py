@@ -1,5 +1,5 @@
 import os, random
-os.chdir('UvP/Vislice')
+#os.chdir('UvP/Vislice')
 
 STEVILO_DOVOLJENIH_NAPAK = 10
 
