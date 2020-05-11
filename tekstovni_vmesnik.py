@@ -9,6 +9,8 @@ import model
 
 # print('\033[1;94m' + niz + '\033[0m')
 # 90 sivo, 91 rdeče, 92 zeleno, 93 rumeno, 94 modro, 95 roza, 96 svetlo modro, 97 krepko 
+ime = input('\nKako ti je ime?  >')
+_ = input(f'\nŽivijo {ime[0].upper() + ime[1:].lower()}, zelo appreciatam da igras mojo igrico.\nPritisni enter in začni igrati!')
 
 def izpis_poraza(igra):
     tekst = ('\033[1;97m    ---------------\033[0m\n'
@@ -133,7 +135,7 @@ def izpis_igre(igra):
 
     tekst = '\033[1;94m' + '\n' * 50 + '  -------------\n    ---------\n      -----\n\n\033[0m' + pajac + (
         f'\033[1;94m\n Geslo: {igra.pravilni_del_gesla()}\033[0m\n\n'
-        f'\033[1;91m Napačne že ugibane črke: {igra.nepravilni_ugibi()}\033[0m\n\n'
+        f'\033[1;91m Napačno ugibane črke: {igra.nepravilni_ugibi()}\033[0m\n\n'
         f'\033[1;90m Zmotiš se lahko še {model.STEVILO_DOVOLJENIH_NAPAK - igra.stevilo_napak()}-krat.\n\033[0m'
     )
     return tekst
@@ -147,12 +149,13 @@ def zahtevaj_vnos():
 
 def ponudi_naslednjo_igro():
     izbira = input('\033[1;97m\nAli želis ponovno igrati? (da / ne) >\033[0m')
-    if izbira.lower() in 'da ja':
+    if izbira.lower() == 'da' or izbira.lower() == 'ja':
         pozeni_vmesnik()
-    elif izbira.lower() in 'grem raje spat ne':
-        pozeni_vmesnik()
+    elif izbira.lower() =='grem raje spat' or izbira.lower() == 'ne':
+        print(f'\n{ime[0].upper() + ime[1:].lower()}, želim ti vse najboljše v tvojem življenju, dragi popotnik v prostoru in času.\n\n')
+        return
     else:
-        print('\nProsim, vnesi ' + '\033[1;92mda\033[0m' + 'ali' + '\033[1;91mne\033[0m')
+        print('\nProsim, vnesi ' + '\033[1;92mda\033[0m' + ' ali ' + '\033[1;91mne\033[0m')
         return ponudi_naslednjo_igro()
 
 def pozeni_vmesnik():
