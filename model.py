@@ -17,7 +17,7 @@ with open('besede.txt', 'r', encoding='utf-8') as datoteka_besed:
     for beseda in datoteka_besed:
         bazen_besed.append(beseda.strip().lower())
 
- class Igra:
+class Igra:
     def __init__(self, geslo, crke=None):
         self.geslo = geslo.lower()
         if crke is None:
