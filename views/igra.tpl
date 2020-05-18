@@ -2,30 +2,31 @@
 % rebase('base.tpl')
 
 <blockquote>
-  Vislice so najboljša igra za preganjanje dolgčasa (poleg tetrisa).
-  <small>Študentje</small>
+  Vislice, ikonična ter vsem dobro znana igra.
 </blockquote>
 
-<h2> {{ igra.pravilni_del_gesla() }} </h2>
+<h3>Trenutno stanje gesla: {{ igra.pravilni_del_gesla() }}</h3>
 
-<h2> Napačni ugibi: {{ igra.nepravilni_ugibi() }} </h2>
+<h4>Napačni ugibi: {{ igra.nepravilni_ugibi() }}</h4>
 
 
 % if poskus == model.ZMAGA:
 <h1> ZMAGAL SI </h1>
-%elif poskus == model.PORAZ:
+<form action="/igra/" method="post">
+  <button type="submit">Grem še eno igro!</button>
+</form>
+% elif poskus == model.PORAZ:
 <h1> IZGUBIL SI </h1>
-%else:
+<form action="/igra/" method="post">
+  <button type="submit">Grem še eno igro!</button>
+</form>
+% else:
 <form action="/igra/{{ id_igre }}/" method="post">
-  Črka: <input type="text", name="crka">
-  <button type="submit">Ugibaj novo črko</button>
+  Ugibaj črko: <input type="text", name="crka">
+  <button type="submit">Ugibaj</button>
 </form>
 % end
 
 
 
 <img src="img/10.jpg" alt="obesanje">
-
-<form action="/igra/" method="post">
-  <button type="submit">Nova igra</button>
-</form>

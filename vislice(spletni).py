@@ -41,8 +41,4 @@ def ugibaj(id_igre):
 
 
 
-
-
-
-
 bottle.run(debug=True, reloader=True)

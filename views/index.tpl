@@ -1,9 +1,8 @@
-%import model
+% import model
 % rebase('base.tpl')
 
 <blockquote>
-  Vislice so najboljša igra za preganjanje dolgčasa (poleg tetrisa).
-  <small>Študentje</small>
+  Vislice, ikonična ter vsem dobro znana igra.
 </blockquote>
 
 <img src="img/10.jpg" alt="obesanje">
