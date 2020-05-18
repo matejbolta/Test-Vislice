@@ -5,8 +5,11 @@
 #   |   / \
 #  _|_______
 
-import os, random
-os.chdir('UvP/Vislice')
+import random
+
+# Potrebno le, če je v urejevalniku odprta višja mapa.
+#import random
+#os.chdir('UvP/Vislice')
 
 STEVILO_DOVOLJENIH_NAPAK = 10
 
