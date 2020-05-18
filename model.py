@@ -13,6 +13,7 @@ import random
 
 STEVILO_DOVOLJENIH_NAPAK = 10
 
+# Konstanta Igre ob začetku igre
 ZACETEK = 'Z'
 
 # Konstante za rezultate ugibanj
@@ -61,11 +62,11 @@ class Igra:
         rtr = ''
         for crka in self.geslo:
             if crka in self.crke:
-                rtr += crka
+                rtr += crka + ' '
             else:
-                rtr += '_'
+                rtr += '_ '
 
-        return rtr
+        return rtr[:-1]
 
     def nepravilni_ugibi(self):
         '''vrne niz, ki vsebuje s presledkom ločene nepravilne ugibe igralca'''
@@ -106,11 +107,11 @@ class Vislice:
 
     def prosti_id_igre(self):
         '''Vrne nek ID, ki ga ne uporablja nobena igra'''
-        # return len(self.igre) ??
-        if not self.igre:
-            return 0
-        else:
-            return max(self.igre.keys()) + 1
+        return len(self.igre)
+        #if not self.igre:
+        #    return 0
+        #else:
+        #    return max(self.igre.keys()) + 1
 
     def nova_igra(self):
         
