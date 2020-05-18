@@ -7,7 +7,7 @@
 
 import random
 
-# Potrebno le, če je v urejevalniku odprta višja mapa.
+# Potrebno le, če je v urejevalniku odprta višji path.
 #import random
 #os.chdir('UvP/Vislice')
 
