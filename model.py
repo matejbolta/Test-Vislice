@@ -7,6 +7,16 @@
 
 import random
 
+LOGO = '''
+                                           
+____   ____.__       .__  .__              
+\   \ /   /|__| _____|  | |__| ____  ____  
+ \   Y   / |  |/  ___/  | |  |/ ___\/ __ \ 
+  \     /  |  |\___ \|  |_|  \  \__\  ___/ 
+   \___/   |__/______>____/__|\_____>_____>
+                                           
+'''
+
 # Potrebno le, če je v urejevalniku odprta višji path.
 #import random
 #os.chdir('UvP/Vislice')
