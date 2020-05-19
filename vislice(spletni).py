@@ -38,6 +38,11 @@ def ugibaj(id_igre):
 
     bottle.redirect(f'/igra/{id_igre}/')
 
-
+# S funkcijo static_file lahko ponujamo tudi
+# statične datoteke (slike, CSS stili, …)
+@bottle.get('/static/<k:int>/')
+def server_static(k):
+    ime_dat = f'{k}.jpg'
+    return bottle.static_file(ime_dat, root='img')
 
 bottle.run(debug=True, reloader=True)
