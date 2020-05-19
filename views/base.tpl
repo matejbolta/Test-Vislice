@@ -2,7 +2,7 @@
 <html>
 <body>
   <title>Vislice</title>
-  <h3>{{model.LOGO}}</h3>
+  <h1><pre>{{model.LOGO}}</pre></h1>
   {{!base}}
   <footer>© 2020, Matej Bolta</footer>
 </body>
