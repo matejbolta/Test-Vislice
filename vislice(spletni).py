@@ -40,9 +40,12 @@ def ugibaj(id_igre):
 
 # S funkcijo static_file lahko ponujamo tudi
 # statične datoteke (slike, CSS stili, …)
-@bottle.get('/static/<k:int>/')
-def server_static(k):
-    ime_dat = f'{k}.jpg'
+@bottle.get('/static/<ime_dat:path>/')
+def server_static(ime_dat):
     return bottle.static_file(ime_dat, root='img')
+
+@bottle.get('/test/')
+def test():
+    return bottle.template('test.tpl')
 
 bottle.run(debug=True, reloader=True)
