@@ -17,6 +17,7 @@
       Nepravilni ugibi: {{ igra.nepravilni_ugibi() }}
     </td>
   </tr>
+
   % if igra.stevilo_napak() != 0:
   <tr>
     <td>
@@ -24,17 +25,18 @@
     </td>
   </tr>
   % end
+  
 </table>
 
 
 % if poskus == model.ZMAGA:
-<h1> ZMAGAL SI </h1>
+<h1> !BRAVO, USPELO TI JE! </h1>
 <form action="/igra/" method="post">
   <button type="submit">Grem še eno igro!</button>
 </form>
 
 % elif poskus == model.PORAZ:
-<h1> IZGUBIL SI </h1>
+<h1> !!YOU LOST!! </h1>
 <h3> Pravilno geslo je bilo: {{ igra.geslo }} </h3>
 <form action="/igra/" method="post">
   <button type="submit">Grem še eno igro!</button>

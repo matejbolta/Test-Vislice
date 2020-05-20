@@ -5,7 +5,7 @@
   Vislice, ikonična ter vsem dobro znana igra.
 </blockquote>
 
-<img src="/img/obesen.jpg" alt="picture">
+<img src="/img/11.jpg" alt="picture">
 
 <form action="/igra/" method="post">
   <button type="submit">Nova igra</button>

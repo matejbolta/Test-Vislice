@@ -47,7 +47,4 @@ def serve_pictures(slika):
     return bottle.static_file(slika, root='img')
 
 
-
-
-
 bottle.run(debug=True, reloader=True)
