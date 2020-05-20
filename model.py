@@ -16,7 +16,7 @@ ____   ____.__       .__  .__
                                            
 '''
 
-# Potrebno le, če je v urejevalniku odprta višji path.
+# Potrebno le, če je v urejevalniku odprt višji path.
 #import random
 #os.chdir('UvP/Vislice')
 

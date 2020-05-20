@@ -1,6 +1,6 @@
 import bottle, model
 
-# Potrebno le, če je v urejevalniku odprta višji path.
+# Potrebno le, če je v urejevalniku odprt višji path.
 #import os
 #os.chdir('UvP/Vislice')
 
@@ -38,14 +38,12 @@ def ugibaj(id_igre):
 
     bottle.redirect(f'/igra/{id_igre}/')
 
-# S funkcijo static_file lahko ponujamo tudi
-# statične datoteke (slike, CSS stili, …)
-@bottle.get('/static/<ime_dat:path>/')
-def server_static(ime_dat):
-    return bottle.static_file(ime_dat, root='img')
+@bottle.get('/img/<slika>/')
+def serve_pictures(slika):
+    return bottle.static_file(slika, root='img')
 
-@bottle.get('/test/')
-def test():
-    return bottle.template('test.tpl')
+
+
+
 
 bottle.run(debug=True, reloader=True)
