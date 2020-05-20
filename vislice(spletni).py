@@ -42,7 +42,7 @@ def ugibaj(id_igre):
     bottle.redirect(f'/igra/{id_igre}/')
 
 
-@bottle.get('/img/<slika>/')
+@bottle.get('/img/<slika>')
 def serve_pictures(slika):
     return bottle.static_file(slika, root='img')
 

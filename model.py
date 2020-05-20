@@ -116,11 +116,10 @@ class Vislice:
 
     def prosti_id_igre(self):
         '''Vrne nek ID, ki ga ne uporablja nobena igra'''
-        return len(self.igre)
-        #if not self.igre:
-        #    return 0
-        #else:
-        #    return max(self.igre.keys()) + 1
+        if not self.igre:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
 
     def nova_igra(self):
         

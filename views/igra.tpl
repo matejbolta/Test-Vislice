@@ -17,12 +17,13 @@
       Nepravilni ugibi: {{ igra.nepravilni_ugibi() }}
     </td>
   </tr>
-
+  % if igra.stevilo_napak() != 0:
   <tr>
     <td>
-      <img src="../../img/{{igra.stevilo_napak()}}.jpg" alt="SLIKA 2 NE DELA">
+      <img src="../../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
     </td>
   </tr>
+  % end
 </table>
 
 
@@ -41,7 +42,7 @@
 
 % else:
 <form action="/igra/{{ id_igre }}/" method="post">
-  Ugibaj črko: <input type="text", name="crka">
+  Ugibaj črko: <input type="text", name="crka" autofocus>
   <button type="submit">Ugibaj</button>
 </form>
 
