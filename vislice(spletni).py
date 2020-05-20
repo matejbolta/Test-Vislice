@@ -36,10 +36,12 @@ def pokazi_igro(id_igre):
 @bottle.post('/igra/<id_igre:int>/')
 def ugibaj(id_igre):
     crka = bottle.request.forms.getunicode('crka')
-
-    vislice.ugibaj(id_igre, crka)
-
-    bottle.redirect(f'/igra/{id_igre}/')
+    
+    if len(crka) != 1 or not crka.isalpha():
+        bottle.redirect(f'/igra/{id_igre}/')
+    else:
+        vislice.ugibaj(id_igre, crka)
+        bottle.redirect(f'/igra/{id_igre}/')
 
 
 @bottle.get('/img/<slika>')
