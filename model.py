@@ -112,17 +112,17 @@ class Vislice:
     '''
     def __init__(self,):
         # Slovar, ki ID-ju priredi objekt njegove igre
-        self.igre = {}  #    int --> (Igra, stanje)
+        self.igre = {}  #    str(int) --> (Igra, stanje)
 
     def prosti_id_igre(self):
         '''Vrne nek ID, ki ga ne uporablja nobena igra'''
         if not self.igre:
-            return 0
+            return str(0)
         else:
-            return max(self.igre.keys()) + 1
+            return str(max([int(id) for id in self.igre.keys()]) + 1)
 
     def nova_igra(self):
-        self.preberi_iz_datoteke()
+        #self.preberi_iz_datoteke()
 
         # Dobimo svež ID
         nov_id = self.prosti_id_igre()
@@ -133,13 +133,13 @@ class Vislice:
         # Vse to shranimo v self.igre
         self.igre[nov_id] = sveza_igra, ZACETEK
 
-        self.shrani_v_datoteko()
+        #self.shrani_v_datoteko()
 
         # Vrnemo nov ID
         return nov_id
 
     def ugibaj(self, id_igre, crka):
-        self.preberi_iz_datoteke()
+        #self.preberi_iz_datoteke()
 
         # Dobimo staro igro ven
         trenutna_igra, _ = self.igre[id_igre]
@@ -150,7 +150,7 @@ class Vislice:
         # Zapišemo posodobljeno stanje in igro nazaj v 'BAZO'
         self.igre[id_igre] = (trenutna_igra, novo_stanje)
 
-        self.shrani_v_datoteko()
+        #self.shrani_v_datoteko()
 
     def shrani_v_datoteko(self):
         #{id_igre : ((geslo, ugibane_crke), stanje_igre)}

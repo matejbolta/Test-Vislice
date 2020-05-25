@@ -31,20 +31,20 @@
 
 % if poskus == model.ZMAGA:
 <h1> !BRAVO, USPELO TI JE! </h1>
-<form action="/igra/" method="post">
+<form action="/nova_igra/" method="post">
   <button type="submit">Grem še eno igro!</button>
 </form>
 
 % elif poskus == model.PORAZ:
 <h1> !!YOU LOST!! </h1>
 <h3> Pravilno geslo je bilo: {{ igra.geslo }} </h3>
-<form action="/igra/" method="post">
+<form action="/nova_igra/" method="post">
   <button type="submit">Grem še eno igro!</button>
 </form>
 
 % else:
 <form action="/igra/" method="post">
-  Ugibaj črko: <input type="text", name="crka" autofocus>
+  Ugibaj črko: <input type="text", name="crka", autofocus>
   <button type="submit">Ugibaj</button>
 </form>
 

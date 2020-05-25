@@ -25,29 +25,30 @@ def index():
     return bottle.template('index.tpl')
 
 
-@bottle.post('/igra/')
+@bottle.post('/nova_igra/')
 def nova_igra():
     id_nove_igre = vislice.nova_igra()
     bottle.response.set_cookie(
         ID_IGRE_COOKIE_NAME, str(id_nove_igre), path='/',
         secret=COOKIE_SECRET
     )
-    
+
     bottle.redirect('/igra/')
 
 
 @bottle.get('/igra/')
 def pokazi_igro():
-    id_igre = int(bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
-    secret=COOKIE_SECRET))
+    id_igre = bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
+    secret=COOKIE_SECRET)
     igra, poskus = vislice.igre[id_igre]
 
-    return bottle.template('igra.tpl', igra=igra, poskus=poskus, id_igre=id_igre)
+    return bottle.template('igra.tpl',
+    igra=igra, poskus=poskus, id_igre=id_igre)
 
 @bottle.post('/igra/')
 def ugibaj():
-    id_igre = int(bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
-    secret=COOKIE_SECRET))
+    id_igre = bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
+    secret=COOKIE_SECRET)
 
     crka = bottle.request.forms.getunicode('crka')
     
