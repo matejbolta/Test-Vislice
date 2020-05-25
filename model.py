@@ -7,7 +7,7 @@
 
 import random, json
 
-LOGO = '''
+LOGO = r'''
 ____   ____.__       .__  .__              
 \   \ /   /|__| _____|  | |__| ____  ____  
  \   Y   / |  |/  ___/  | |  |/ ___\/ __ \ 
@@ -134,7 +134,7 @@ class Vislice:
         self.igre[nov_id] = sveza_igra, ZACETEK
 
         self.shrani_v_datoteko()
-        
+
         # Vrnemo nov ID
         return nov_id
 

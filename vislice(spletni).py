@@ -4,7 +4,7 @@ import bottle, model, random
 #import os
 #os.chdir('UvP/Vislice')
 
-LOGO = '''
+LOGO = r'''
 ____   ____.__       .__  .__              
 \   \ /   /|__| _____|  | |__| ____  ____  
  \   Y   / |  |/  ___/  | |  |/ ___\/ __ \ 
