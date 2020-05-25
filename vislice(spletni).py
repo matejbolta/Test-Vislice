@@ -18,7 +18,7 @@ COOKIE_SECRET = 'my very special - secret key and passphrase'
 
 vislice = model.Vislice()
 
-vislice.preberi_iz_datoteke()
+vislice.nalozi_igre_iz_datoteke()
 
 @bottle.get('/')
 def index():
