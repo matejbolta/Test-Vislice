@@ -161,7 +161,7 @@ class Vislice:
             igre[id_igre] = ((igra.geslo, igra.crke), stanje)
         
         with open('stanje.json', 'w', encoding='utf-8') as out_file:
-            json.dump(igre, out_file)
+            json.dump(igre, out_file, ensure_ascii=False)
 
     def nalozi_igre_iz_datoteke(self):
         with open('stanje.json', 'r', encoding='utf-8') as in_file:
