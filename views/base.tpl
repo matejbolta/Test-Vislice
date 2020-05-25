@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <title>Vislice</title>
+    <meta charset="UTF-8">
+    <!-- Tukaj vključimo css stvari--> 
+</head>
+
 <body>
-  <title>Vislice</title>
-  <h1><pre>{{model.LOGO}}</pre></h1>
-  {{!base}}
-  <footer>© 2020, Matej Bolta</footer>
+    <!-- Tukaj pride vsebina--> 
+    <div class="container">
+        <h1><pre>{{model.LOGO}}</pre></h1>
+        {{!base}}
+    </div>
+
+    <!-- Tukaj dodamo še javascript--> 
 </body>
 </html>

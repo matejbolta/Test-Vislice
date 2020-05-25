@@ -11,13 +11,13 @@
       <h2>{{ igra.pravilni_del_gesla() }}</h2>
     </td>
   </tr>
-
+  
   <tr>
     <td>
       Nepravilni ugibi: {{ igra.nepravilni_ugibi() }}
     </td>
   </tr>
-
+  
   % if igra.stevilo_napak() != 0:
   <tr>
     <td>
