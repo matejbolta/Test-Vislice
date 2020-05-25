@@ -43,7 +43,7 @@
 </form>
 
 % else:
-<form action="/igra/{{ id_igre }}/" method="post">
+<form action="/igra/" method="post">
   Ugibaj črko: <input type="text", name="crka" autofocus>
   <button type="submit">Ugibaj</button>
 </form>

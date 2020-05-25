@@ -7,6 +7,6 @@
 
 <img src="/img/11.jpg" alt="picture">
 
-<form action="/igra/" method="post">
+<form action="/igra/" method="POST">
   <button type="submit">Nova igra</button>
 </form>

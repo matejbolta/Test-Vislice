@@ -1,4 +1,4 @@
-import bottle, model
+import bottle, model, random
 
 # Potrebno le, če je v urejevalniku odprt višji path.
 #import os
@@ -13,7 +13,12 @@ ____   ____.__       .__  .__
                                            
 '''
 
+ID_IGRE_COOKIE_NAME = 'id_igre'
+COOKIE_SECRET = 'my very special - secret key and passphrase'
+
 vislice = model.Vislice()
+
+vislice.preberi_iz_datoteke()
 
 @bottle.get('/')
 def index():
@@ -23,25 +28,34 @@ def index():
 @bottle.post('/igra/')
 def nova_igra():
     id_nove_igre = vislice.nova_igra()
-    bottle.redirect(f'/igra/{id_nove_igre}/')
+    bottle.response.set_cookie(
+        ID_IGRE_COOKIE_NAME, str(id_nove_igre), path='/',
+        secret=COOKIE_SECRET
+    )
+    
+    bottle.redirect('/igra/')
 
 
-@bottle.get('/igra/<id_igre:int>/')
-def pokazi_igro(id_igre):
+@bottle.get('/igra/')
+def pokazi_igro():
+    id_igre = int(bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
+    secret=COOKIE_SECRET))
     igra, poskus = vislice.igre[id_igre]
 
     return bottle.template('igra.tpl', igra=igra, poskus=poskus, id_igre=id_igre)
 
+@bottle.post('/igra/')
+def ugibaj():
+    id_igre = int(bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
+    secret=COOKIE_SECRET))
 
-@bottle.post('/igra/<id_igre:int>/')
-def ugibaj(id_igre):
     crka = bottle.request.forms.getunicode('crka')
     
     if len(crka) != 1 or not crka.isalpha():
-        bottle.redirect(f'/igra/{id_igre}/')
+        bottle.redirect('/igra/')
     else:
         vislice.ugibaj(id_igre, crka)
-        bottle.redirect(f'/igra/{id_igre}/')
+        bottle.redirect('/igra/')
 
 
 @bottle.get('/img/<slika>')
