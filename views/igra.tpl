@@ -17,15 +17,6 @@
       Nepravilni ugibi: {{ igra.nepravilni_ugibi() }}
     </td>
   </tr>
-  
-  % if igra.stevilo_napak() != 0:
-  <tr>
-    <td>
-      <img src="../../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
-    </td>
-  </tr>
-  % end
-  
 </table>
 
 
@@ -42,7 +33,7 @@
   <button type="submit">Grem še eno igro!</button>
 </form>
 
-<!--
+<!-- (Vnosno polje za črko)
 procent else:
 <form action="/igra/" method="post">
   Ugibaj črko: <input type="text", name="crka", autofocus>
@@ -52,42 +43,28 @@ procent else:
 procent end
 -->
 
+<!-- Tipkovnica -->
 % else:
-
 <table>
+  % for vrsta in ['QWERTZUIOPŠĐ', 'ASDFGHJKLČĆŽ', 'YXCVBNM_____']:
   <tr>
-    % for i in 'QWERTZUIOPŠĐ':
-    <td>
-      <form action="/igra/" method="post">
-        <button type="submit", name='crka', value='{{i}}'>{{i}}</button>
-      </form>
-    </td>
-    % end
-  </tr>
-
-  <tr>
-    % for i in 'ASDFGHJKLČĆŽ':
-    <td>
-      <form action="/igra/" method="post">
-        <button type="submit", name='crka', value='{{i}}'>{{i}}</button>
-      </form>
-    </td>
-    % end
-  </tr>
-
-  <tr>
-    % for i in 'YXCVBNM':
-    <td>
-      <form action="/igra/" method="post">
-        <button type="submit", name='crka', value='{{i}}'>{{i}}</button>
-      </form>
-    </td>
-    % end
-
-    % for _ in range(5):
+    % for znak in vrsta:
+    %   if znak == '_':
     <td></td>
+    %   else:
+    <td>
+      <form action="/igra/" method="post">
+        <button type="submit", name='crka', value='{{znak}}'>{{znak}}</button>
+      </form>
+    </td>
+    %   end
     % end
   </tr>
+  % end
 </table>
+% end
 
+<!-- Slika -->
+% if igra.stevilo_napak() != 0:
+<img src="../../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
 % end

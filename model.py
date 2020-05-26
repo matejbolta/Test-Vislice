@@ -50,7 +50,7 @@ class Igra:
 
     def napacne_crke(self):
         '''vrne seznam napačnih ugibanj igralca'''
-        return [c for c in self.crke if c not in self.geslo]
+        return [c.upper() for c in self.crke if c not in self.geslo]
 
     def pravilne_crke(self):
         '''vrne seznam pravilnih ugibanj igralca'''
@@ -71,7 +71,7 @@ class Igra:
         rtr = ''
         for crka in self.geslo:
             if crka in self.crke:
-                rtr += crka + ' '
+                rtr += crka.upper() + ' '
             else:
                 rtr += '_ '
 
