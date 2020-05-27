@@ -191,21 +191,18 @@ def statistika(datoteka_s_stanjem):
     slovar_statistik['stevilo_iger'] = stevilo_iger
 
     stevilo_zmag = sum([1 if poskus == ZMAGA else 0 for _, poskus in vislice.igre.values()])
-    slovar_statistik['odstotek_zmag'] = odstotek(stevilo_zmag, stevilo_iger)
+    slovar_statistik['odstotek_zmag'] = f'{odstotek(stevilo_zmag, stevilo_iger)}%'
 
     stevilo_porazov = sum([1 if poskus == PORAZ else 0 for _, poskus in vislice.igre.values()])
-    slovar_statistik['odstotek_porazov'] = odstotek(stevilo_porazov, stevilo_iger)
+    slovar_statistik['odstotek_porazov'] = f'{odstotek(stevilo_porazov, stevilo_iger)}%'
 
     stevilo_nedokoncnih_iger = stevilo_iger - stevilo_zmag - stevilo_porazov
-    slovar_statistik['odstotek_nedokoncanih_iger'] = odstotek(stevilo_nedokoncnih_iger, stevilo_iger)
+    slovar_statistik['odstotek_nedokoncanih_iger'] = f'{odstotek(stevilo_nedokoncnih_iger, stevilo_iger)}%'
 
     najdaljse_uganjeno_geslo = max([igra.geslo if poskus == ZMAGA else '' for igra, poskus in vislice.igre.values()], key=len)
     slovar_statistik['najdaljse_uganjeno_geslo'] = najdaljse_uganjeno_geslo
 
     odstotki_uganjenih_crk = [odstotek(igra.stevilo_pravilnih_crk_s_ponovitvami(), len(igra.geslo)) for igra, _ in vislice.igre.values()]
-    slovar_statistik['povprecen_odstotek_uganjenih_crk'] = round(sum(odstotki_uganjenih_crk) / len(odstotki_uganjenih_crk), 1)
-
-
-
+    slovar_statistik['povprecen_odstotek_uganjenih_crk'] = f'{round(sum(odstotki_uganjenih_crk) / len(odstotki_uganjenih_crk), 1)}%'
 
     return slovar_statistik
