@@ -179,6 +179,7 @@ class Vislice:
         }
 
 
+# Za statistiko
 def odstotek(stevec, imenovalec):
     return round((stevec / imenovalec) * 100)
 
