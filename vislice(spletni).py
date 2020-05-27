@@ -15,8 +15,10 @@ ____   ____.__       .__  .__
 ID_IGRE_COOKIE_NAME = 'id_igre'
 COOKIE_SECRET = 'my very special - secret key and passphrase'
 DATOTEKA_S_STANJEM = 'stanje.json'
+DATOTEKA_Z_BESEDAMI = 'besede.txt'
 
-vislice = model.Vislice(DATOTEKA_S_STANJEM)
+# Naredimo nov objekt vislic in naložimo stanje iz datoteke
+vislice = model.Vislice(DATOTEKA_S_STANJEM, DATOTEKA_Z_BESEDAMI)
 vislice.nalozi_igre_iz_datoteke()
 
 

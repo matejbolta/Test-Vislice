@@ -34,11 +34,6 @@ NAPACNA_CRKA = '-'
 ZMAGA = 'W'
 PORAZ = 'X'
 
-# Zgradimo bazen besed iz datoteke z besedami
-bazen_besed = []
-with open('besede.txt', 'r', encoding='utf-8') as datoteka_besed:
-    for beseda in datoteka_besed:
-        bazen_besed.append(beseda.strip().lower())
 
 class Igra:
     def __init__(self, geslo, crke=None):
@@ -101,19 +96,15 @@ class Igra:
                 return NAPACNA_CRKA
 
 
-# Naredimo funkcijo za novo igro
-def nova_igra():
-    return Igra(random.choice(bazen_besed))
-
-
 class Vislice:
     '''
     Skrbi za trenutno stanje VEČ iger (imel bo več objektov tipa Igra)
     '''
-    def __init__(self, datoteka_s_stanjem):
+    def __init__(self, datoteka_s_stanjem, datoteka_z_besedami='besede.txt'):
         # Slovar, ki ID-ju priredi objekt njegove igre
         self.igre = {}  #    str(int) --> (Igra, stanje)
         self.datoteka_s_stanjem = datoteka_s_stanjem
+        self.datoteka_z_besedami = datoteka_z_besedami
 
     def prosti_id_igre(self):
         '''Vrne nek ID, ki ga ne uporablja nobena igra'''
@@ -125,11 +116,15 @@ class Vislice:
     def nova_igra(self):
         self.nalozi_igre_iz_datoteke()
 
+        # Zgradimo bazen besed iz datoteke z besedami
+        with open(self.datoteka_z_besedami, 'r', encoding='utf-8') as in_file:
+            bazen_besed = [beseda.strip().lower() for beseda in in_file]
+
         # Dobimo svež ID
         nov_id = self.prosti_id_igre()
 
         # Naredimo novo igro
-        sveza_igra = nova_igra()
+        sveza_igra = Igra(random.choice(bazen_besed))
 
         # Vse to shranimo v self.igre
         self.igre[nov_id] = sveza_igra, ZACETEK
