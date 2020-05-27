@@ -67,6 +67,13 @@ def ugibaj():
         bottle.redirect('/igra/')
 
 
+# Statistika
+@bottle.get('/statistika/')
+def pokazi_statistiko():
+    slovar_statistik = model.statistika(DATOTEKA_S_STANJEM)
+    return bottle.template('statistika.tpl', slovar_statistik=slovar_statistik)
+
+
 # Slika
 @bottle.get('/img/<slika>')
 def serve_pictures(slika):
