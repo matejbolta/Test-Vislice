@@ -12,13 +12,12 @@ ____   ____.__       .__  .__
    \___/   |__/______>____/__|\_____>_____>
                                            
 '''
-
 ID_IGRE_COOKIE_NAME = 'id_igre'
 COOKIE_SECRET = 'my very special - secret key and passphrase'
 
 vislice = model.Vislice()
-
 vislice.nalozi_igre_iz_datoteke()
+
 
 @bottle.get('/')
 def index():
@@ -29,7 +28,8 @@ def index():
 def nova_igra():
     id_nove_igre = vislice.nova_igra()
     bottle.response.set_cookie(
-        ID_IGRE_COOKIE_NAME, str(id_nove_igre), path='/',
+        ID_IGRE_COOKIE_NAME, str(id_nove_igre),
+        path='/',
         secret=COOKIE_SECRET
     )
 
@@ -38,17 +38,22 @@ def nova_igra():
 
 @bottle.get('/igra/')
 def pokazi_igro():
-    id_igre = bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
-    secret=COOKIE_SECRET)
+    id_igre = bottle.request.get_cookie(
+        ID_IGRE_COOKIE_NAME,
+        secret=COOKIE_SECRET
+    )
     igra, poskus = vislice.igre[id_igre]
 
     return bottle.template('igra.tpl',
     igra=igra, poskus=poskus, id_igre=id_igre)
 
+
 @bottle.post('/igra/')
 def ugibaj():
-    id_igre = bottle.request.get_cookie(ID_IGRE_COOKIE_NAME,
-    secret=COOKIE_SECRET)
+    id_igre = bottle.request.get_cookie(
+        ID_IGRE_COOKIE_NAME,
+        secret=COOKIE_SECRET
+    )
 
     crka = bottle.request.forms.getunicode('crka')
     
@@ -59,6 +64,7 @@ def ugibaj():
         bottle.redirect('/igra/')
 
 
+# Slika
 @bottle.get('/img/<slika>')
 def serve_pictures(slika):
     return bottle.static_file(slika, root='img')

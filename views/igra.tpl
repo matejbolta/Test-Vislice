@@ -8,7 +8,7 @@
 <table>
   <tr>
     <td>
-      <h2>{{ igra.pravilni_del_gesla() }}</h2>
+      <h4>{{ igra.pravilni_del_gesla() }}</h4>
     </td>
   </tr>
   
@@ -66,5 +66,5 @@ procent end
 
 <!-- Slika -->
 % if igra.stevilo_napak() != 0:
-<img src="../../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
+<img src="../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
 % end
