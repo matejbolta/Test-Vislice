@@ -59,3 +59,7 @@
         </td>
     </tr>
 </table>
+
+<form action="/" method="get">
+    <button type="submit">Domov</button>
+</form>

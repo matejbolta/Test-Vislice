@@ -68,3 +68,7 @@ procent end
 % if igra.stevilo_napak() != 0:
 <img src="../img/{{igra.stevilo_napak()}}.jpg" alt="picture">
 % end
+
+<form action="/" method="get">
+  <button type="submit">Domov</button>
+</form>
