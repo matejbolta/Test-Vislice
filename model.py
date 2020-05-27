@@ -110,9 +110,10 @@ class Vislice:
     '''
     Skrbi za trenutno stanje VEČ iger (imel bo več objektov tipa Igra)
     '''
-    def __init__(self,):
+    def __init__(self, datoteka_s_stanjem):
         # Slovar, ki ID-ju priredi objekt njegove igre
         self.igre = {}  #    str(int) --> (Igra, stanje)
+        self.datoteka_s_stanjem = datoteka_s_stanjem
 
     def prosti_id_igre(self):
         '''Vrne nek ID, ki ga ne uporablja nobena igra'''
@@ -153,20 +154,23 @@ class Vislice:
         self.zapisi_igre_v_datoteko()
 
     def zapisi_igre_v_datoteko(self):
-        #{id_igre : ((geslo, ugibane_crke), stanje)}
-        # {1 : ('balkon', 'sdjth'), '+'}
+        # {  id_igre : (  (  geslo,    ugibane_crke ),   stanje   )  }
+        # {    '1'   : (  ( 'balkon',   'asdfghjl'  ),     '+'    )  }
 
-        igre = {}
-        for id_igre, (igra, stanje) in self.igre.items(): # id_igre, (Igra, stanje)
-            igre[id_igre] = ((igra.geslo, igra.crke), stanje)
-        
-        with open('stanje.json', 'w', encoding='utf-8') as out_file:
-            json.dump(igre, out_file, ensure_ascii=False)
+        igre1 = {
+            id_igre : ((igra.geslo, igra.crke), poskus)
+            for id_igre, (igra, poskus) in self.igre.items()
+            #   id_igre, (Igra, poskus)
+        }
+
+        with open(self.datoteka_s_stanjem, 'w', encoding='utf-8') as out_file:
+            json.dump(igre1, out_file, ensure_ascii=False)
 
     def nalozi_igre_iz_datoteke(self):
-        with open('stanje.json', 'r', encoding='utf-8') as in_file:
-            igre_iz_diska = json.load(in_file) # Mogoče bi to preimenovali v igre_iz_diska
+        with open(self.datoteka_s_stanjem, 'r', encoding='utf-8') as in_file:
+            igre_iz_diska = json.load(in_file)
 
-        self.igre = {}
-        for id_igre, ((geslo, crke), stanje) in igre_iz_diska.items():
-            self.igre[id_igre] = Igra(geslo, crke), stanje
+        self.igre = {
+            id_igre: (Igra(geslo, crke), poskus)
+            for id_igre, ((geslo, crke), poskus) in igre_iz_diska.items()
+        }

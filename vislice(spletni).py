@@ -14,8 +14,9 @@ ____   ____.__       .__  .__
 '''
 ID_IGRE_COOKIE_NAME = 'id_igre'
 COOKIE_SECRET = 'my very special - secret key and passphrase'
+DATOTEKA_S_STANJEM = 'stanje.json'
 
-vislice = model.Vislice()
+vislice = model.Vislice(DATOTEKA_S_STANJEM)
 vislice.nalozi_igre_iz_datoteke()
 
 
@@ -68,6 +69,7 @@ def ugibaj():
 @bottle.get('/img/<slika>')
 def serve_pictures(slika):
     return bottle.static_file(slika, root='img')
+
 
 
 bottle.run(debug=True, reloader=True)
