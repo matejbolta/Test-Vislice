@@ -15,7 +15,7 @@
             Število dosedanjih iger:
         </td>
         <td>
-            {{slovar_statistik['stevilo_iger']}}
+            {{slovar_statistik.get('stevilo_iger', 'N/A')}}
         </td>
     </tr>
     <tr>
@@ -23,7 +23,7 @@
             Število nedokončanih iger:
         </td>
         <td>
-            {{slovar_statistik['odstotek_nedokoncanih_iger']}}
+            {{slovar_statistik.get('odstotek_nedokoncanih_iger', 'N/A')}}
         </td>
     </tr>
     <tr>
@@ -31,7 +31,7 @@
             Odstotek zmag:
         </td>
         <td>
-            {{slovar_statistik['odstotek_zmag']}}
+            {{slovar_statistik.get('odstotek_zmag', 'N/A')}}
         </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@
             Odstotek porazov:
         </td>
         <td>
-            {{slovar_statistik['odstotek_porazov']}}
+            {{slovar_statistik.get('odstotek_porazov', 'N/A')}}
         </td>
     </tr>
     <tr>
@@ -47,7 +47,7 @@
             Najdaljše uganjeno geslo:
         </td>
         <td>
-            {{slovar_statistik['najdaljse_uganjeno_geslo']}}
+            {{slovar_statistik.get('najdaljse_uganjeno_geslo', 'N/A')}}
         </td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@
             Povprečen odstotek uganjenih črk:
         </td>
         <td>
-            {{slovar_statistik['povprecen_odstotek_uganjenih_crk']}}
+            {{slovar_statistik.get('povprecen_odstotek_uganjenih_crk', 'N/A')}}
         </td>
     </tr>
 </table>
