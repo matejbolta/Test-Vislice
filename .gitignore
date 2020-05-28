@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Stanje.json
-.json
+stanje.json
