@@ -158,9 +158,14 @@ def ponudi_naslednjo_igro():
         print('\nProsim, vnesi ' + '\033[1;92mda\033[0m' + ' ali ' + '\033[1;91mne\033[0m')
         return ponudi_naslednjo_igro()
 
+# Naredimo nov objekt vislic in naložimo stanje iz datoteke
+vislice = model.Vislice('stanje.json', 'besede.txt')
+vislice.nalozi_igre_iz_datoteke()
+
 def pozeni_vmesnik():
     # Naredimo novo igro
-    trenutna_igra = model.nova_igra()
+    id_nove_igre = vislice.nova_igra()
+    trenutna_igra = vislice.igre[id_nove_igre][0]
 
     while True:
         # Pokažemo mu stanje
